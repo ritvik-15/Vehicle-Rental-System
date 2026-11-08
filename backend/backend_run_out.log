@@ -1,0 +1,3593 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-10-13T11:42:20.054+05:30  INFO 25996 --- [           main] c.v.rental.VehicleRentalApplication      : Starting VehicleRentalApplication v0.0.1-SNAPSHOT using Java 17.0.20 with PID 25996 (C:\Users\Ritvik\OneDrive\Desktop\Vehicle rental project\backend\target\vehicle-rental-0.0.1-SNAPSHOT.jar started by Ritvik in C:\Users\Ritvik\OneDrive\Desktop\Vehicle rental project\backend)
+2026-10-13T11:42:20.057+05:30 DEBUG 25996 --- [           main] c.v.rental.VehicleRentalApplication      : Running with Spring Boot v3.2.5, Spring v6.1.6
+2026-10-13T11:42:20.058+05:30  INFO 25996 --- [           main] c.v.rental.VehicleRentalApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-10-13T11:42:21.297+05:30  INFO 25996 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-13T11:42:21.396+05:30  INFO 25996 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 88 ms. Found 7 JPA repository interfaces.
+2026-10-13T11:42:22.368+05:30  INFO 25996 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-10-13T11:42:22.390+05:30  INFO 25996 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-13T11:42:22.391+05:30  INFO 25996 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2026-10-13T11:42:22.463+05:30  INFO 25996 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-10-13T11:42:22.465+05:30  INFO 25996 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2308 ms
+2026-10-13T11:42:22.579+05:30 DEBUG 25996 --- [           main] c.v.r.security.JwtAuthenticationFilter   : Filter 'jwtAuthenticationFilter' configured for use
+2026-10-13T11:42:22.850+05:30  INFO 25996 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-10-13T11:42:23.003+05:30  INFO 25996 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-10-13T11:42:23.074+05:30  INFO 25996 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-10-13T11:42:23.450+05:30  INFO 25996 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-13T11:42:23.517+05:30  INFO 25996 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-13T11:42:24.069+05:30  INFO 25996 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@df7d1d4
+2026-10-13T11:42:24.072+05:30  INFO 25996 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-13T11:42:24.141+05:30  WARN 25996 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-10-13T11:42:25.383+05:30  INFO 25996 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-13T11:42:25.386+05:30  INFO 25996 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-13T11:42:25.964+05:30  INFO 25996 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-13T11:42:27.476+05:30  WARN 25996 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-10-13T11:42:27.505+05:30  WARN 25996 --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 062e5201-a3b1-476c-9da6-d7b907e5aa4d
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-10-13T11:42:28.124+05:30  INFO 25996 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@56cb0ced, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2bbcb801, org.springframework.security.web.context.SecurityContextHolderFilter@3c0ff70b, org.springframework.security.web.header.HeaderWriterFilter@57f4839c, org.springframework.web.filter.CorsFilter@44fcf2b2, org.springframework.security.web.authentication.logout.LogoutFilter@37f73847, com.vehicle.rental.security.JwtAuthenticationFilter@568750b7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2f5f543, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6b55832a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3c52060, org.springframework.security.web.session.SessionManagementFilter@2c279ceb, org.springframework.security.web.access.ExceptionTranslationFilter@6b86fed8, org.springframework.security.web.access.intercept.AuthorizationFilter@8eebc81]
+2026-10-13T11:42:28.571+05:30  INFO 25996 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2026-10-13T11:42:28.630+05:30  INFO 25996 --- [           main] c.v.rental.VehicleRentalApplication      : Started VehicleRentalApplication in 9.137 seconds (process running for 9.919)
+2026-10-13T11:42:28.787+05:30  INFO 25996 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-13T11:42:28.787+05:30  INFO 25996 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-13T11:42:28.789+05:30  INFO 25996 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+Hibernate: 
+    select
+        r1_0.rental_id,
+        r1_0.actual_return_datetime,
+        r1_0.created_at,
+        r1_0.daily_rate,
+        r1_0.discount_amount,
+        r1_0.notes,
+        r1_0.number_of_days,
+        r1_0.pickup_datetime,
+        r1_0.promo_id,
+        r1_0.rental_status,
+        r1_0.return_datetime,
+        r1_0.security_deposit,
+        r1_0.subtotal,
+        r1_0.tax_amount,
+        r1_0.total_amount,
+        r1_0.updated_at,
+        r1_0.user_id,
+        r1_0.vehicle_id 
+    from
+        rentals r1_0 
+    where
+        r1_0.rental_status=? 
+        and r1_0.created_at<?
+Hibernate: 
+    select
+        v1_0.vehicle_id,
+        v1_0.brand,
+        v1_0.created_at,
+        v1_0.daily_rate,
+        v1_0.description,
+        v1_0.fuel_type,
+        v1_0.location,
+        v1_0.model,
+        v1_0.registration_number,
+        v1_0.seating_capacity,
+        v1_0.status,
+        v1_0.transmission,
+        v1_0.updated_at,
+        v1_0.vehicle_type 
+    from
+        vehicles v1_0 
+    where
+        v1_0.status<>? 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.brand) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.model) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.location) like lower(concat('%', ?, '%')) escape ''
+        ) 
+        and (
+            ? is null 
+            or v1_0.vehicle_type=?
+        ) 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.location)=lower(?)
+        ) 
+        and (
+            ? is null 
+            or v1_0.fuel_type=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.transmission=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.status=?
+        ) 
+    order by
+        v1_0.created_at desc
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        v1_0.vehicle_id,
+        v1_0.brand,
+        v1_0.created_at,
+        v1_0.daily_rate,
+        v1_0.description,
+        v1_0.fuel_type,
+        v1_0.location,
+        v1_0.model,
+        v1_0.registration_number,
+        v1_0.seating_capacity,
+        v1_0.status,
+        v1_0.transmission,
+        v1_0.updated_at,
+        v1_0.vehicle_type 
+    from
+        vehicles v1_0 
+    where
+        v1_0.status<>? 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.brand) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.model) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.location) like lower(concat('%', ?, '%')) escape ''
+        ) 
+        and (
+            ? is null 
+            or v1_0.vehicle_type=?
+        ) 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.location)=lower(?)
+        ) 
+        and (
+            ? is null 
+            or v1_0.fuel_type=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.transmission=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.status=?
+        ) 
+    order by
+        v1_0.created_at desc
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        v1_0.vehicle_id,
+        v1_0.brand,
+        v1_0.created_at,
+        v1_0.daily_rate,
+        v1_0.description,
+        v1_0.fuel_type,
+        v1_0.location,
+        v1_0.model,
+        v1_0.registration_number,
+        v1_0.seating_capacity,
+        v1_0.status,
+        v1_0.transmission,
+        v1_0.updated_at,
+        v1_0.vehicle_type 
+    from
+        vehicles v1_0 
+    where
+        v1_0.status<>? 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.brand) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.model) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.location) like lower(concat('%', ?, '%')) escape ''
+        ) 
+        and (
+            ? is null 
+            or v1_0.vehicle_type=?
+        ) 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.location)=lower(?)
+        ) 
+        and (
+            ? is null 
+            or v1_0.fuel_type=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.transmission=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.status=?
+        ) 
+    order by
+        v1_0.created_at desc
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        v1_0.vehicle_id,
+        v1_0.brand,
+        v1_0.created_at,
+        v1_0.daily_rate,
+        v1_0.description,
+        v1_0.fuel_type,
+        v1_0.location,
+        v1_0.model,
+        v1_0.registration_number,
+        v1_0.seating_capacity,
+        v1_0.status,
+        v1_0.transmission,
+        v1_0.updated_at,
+        v1_0.vehicle_type 
+    from
+        vehicles v1_0 
+    where
+        v1_0.status<>? 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.brand) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.model) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.location) like lower(concat('%', ?, '%')) escape ''
+        ) 
+        and (
+            ? is null 
+            or v1_0.vehicle_type=?
+        ) 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.location)=lower(?)
+        ) 
+        and (
+            ? is null 
+            or v1_0.fuel_type=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.transmission=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.status=?
+        ) 
+    order by
+        v1_0.created_at desc
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        v1_0.vehicle_id,
+        v1_0.brand,
+        v1_0.created_at,
+        v1_0.daily_rate,
+        v1_0.description,
+        v1_0.fuel_type,
+        v1_0.location,
+        v1_0.model,
+        v1_0.registration_number,
+        v1_0.seating_capacity,
+        v1_0.status,
+        v1_0.transmission,
+        v1_0.updated_at,
+        v1_0.vehicle_type 
+    from
+        vehicles v1_0 
+    where
+        v1_0.status<>? 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.brand) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.model) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.location) like lower(concat('%', ?, '%')) escape ''
+        ) 
+        and (
+            ? is null 
+            or v1_0.vehicle_type=?
+        ) 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.location)=lower(?)
+        ) 
+        and (
+            ? is null 
+            or v1_0.fuel_type=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.transmission=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.status=?
+        ) 
+    order by
+        v1_0.created_at desc
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        v1_0.vehicle_id,
+        v1_0.brand,
+        v1_0.created_at,
+        v1_0.daily_rate,
+        v1_0.description,
+        v1_0.fuel_type,
+        v1_0.location,
+        v1_0.model,
+        v1_0.registration_number,
+        v1_0.seating_capacity,
+        v1_0.status,
+        v1_0.transmission,
+        v1_0.updated_at,
+        v1_0.vehicle_type 
+    from
+        vehicles v1_0 
+    where
+        v1_0.status<>? 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.brand) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.model) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.location) like lower(concat('%', ?, '%')) escape ''
+        ) 
+        and (
+            ? is null 
+            or v1_0.vehicle_type=?
+        ) 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.location)=lower(?)
+        ) 
+        and (
+            ? is null 
+            or v1_0.fuel_type=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.transmission=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.status=?
+        ) 
+    order by
+        v1_0.created_at desc
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        v1_0.vehicle_id,
+        v1_0.brand,
+        v1_0.created_at,
+        v1_0.daily_rate,
+        v1_0.description,
+        v1_0.fuel_type,
+        v1_0.location,
+        v1_0.model,
+        v1_0.registration_number,
+        v1_0.seating_capacity,
+        v1_0.status,
+        v1_0.transmission,
+        v1_0.updated_at,
+        v1_0.vehicle_type 
+    from
+        vehicles v1_0 
+    where
+        v1_0.status<>? 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.brand) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.model) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.location) like lower(concat('%', ?, '%')) escape ''
+        ) 
+        and (
+            ? is null 
+            or v1_0.vehicle_type=?
+        ) 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.location)=lower(?)
+        ) 
+        and (
+            ? is null 
+            or v1_0.fuel_type=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.transmission=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.status=?
+        ) 
+    order by
+        v1_0.created_at desc
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        u1_0.user_id 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    limit
+        ?
+Hibernate: 
+    select
+        u1_0.user_id 
+    from
+        users u1_0 
+    where
+        u1_0.phone=? 
+    limit
+        ?
+Hibernate: 
+    select
+        u1_0.user_id 
+    from
+        users u1_0 
+    where
+        u1_0.email=? 
+    limit
+        ?
+Hibernate: 
+    select
+        u1_0.user_id 
+    from
+        users u1_0 
+    where
+        u1_0.phone=? 
+    limit
+        ?
+Hibernate: 
+    select
+        v1_0.vehicle_id,
+        v1_0.brand,
+        v1_0.created_at,
+        v1_0.daily_rate,
+        v1_0.description,
+        v1_0.fuel_type,
+        v1_0.location,
+        v1_0.model,
+        v1_0.registration_number,
+        v1_0.seating_capacity,
+        v1_0.status,
+        v1_0.transmission,
+        v1_0.updated_at,
+        v1_0.vehicle_type 
+    from
+        vehicles v1_0 
+    where
+        v1_0.status<>? 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.brand) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.model) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.location) like lower(concat('%', ?, '%')) escape ''
+        ) 
+        and (
+            ? is null 
+            or v1_0.vehicle_type=?
+        ) 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.location)=lower(?)
+        ) 
+        and (
+            ? is null 
+            or v1_0.fuel_type=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.transmission=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.status=?
+        ) 
+    order by
+        v1_0.created_at desc
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        v1_0.vehicle_id,
+        v1_0.brand,
+        v1_0.created_at,
+        v1_0.daily_rate,
+        v1_0.description,
+        v1_0.fuel_type,
+        v1_0.location,
+        v1_0.model,
+        v1_0.registration_number,
+        v1_0.seating_capacity,
+        v1_0.status,
+        v1_0.transmission,
+        v1_0.updated_at,
+        v1_0.vehicle_type 
+    from
+        vehicles v1_0 
+    where
+        v1_0.status<>? 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.brand) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.model) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.location) like lower(concat('%', ?, '%')) escape ''
+        ) 
+        and (
+            ? is null 
+            or v1_0.vehicle_type=?
+        ) 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.location)=lower(?)
+        ) 
+        and (
+            ? is null 
+            or v1_0.fuel_type=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.transmission=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.status=?
+        ) 
+    order by
+        v1_0.created_at desc
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        v1_0.vehicle_id,
+        v1_0.brand,
+        v1_0.created_at,
+        v1_0.daily_rate,
+        v1_0.description,
+        v1_0.fuel_type,
+        v1_0.location,
+        v1_0.model,
+        v1_0.registration_number,
+        v1_0.seating_capacity,
+        v1_0.status,
+        v1_0.transmission,
+        v1_0.updated_at,
+        v1_0.vehicle_type 
+    from
+        vehicles v1_0 
+    where
+        v1_0.status<>? 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.brand) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.model) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.location) like lower(concat('%', ?, '%')) escape ''
+        ) 
+        and (
+            ? is null 
+            or v1_0.vehicle_type=?
+        ) 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.location)=lower(?)
+        ) 
+        and (
+            ? is null 
+            or v1_0.fuel_type=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.transmission=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.status=?
+        ) 
+    order by
+        v1_0.created_at desc
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        r1_0.rental_id,
+        r1_0.actual_return_datetime,
+        r1_0.created_at,
+        r1_0.daily_rate,
+        r1_0.discount_amount,
+        r1_0.notes,
+        r1_0.number_of_days,
+        r1_0.pickup_datetime,
+        r1_0.promo_id,
+        r1_0.rental_status,
+        r1_0.return_datetime,
+        r1_0.security_deposit,
+        r1_0.subtotal,
+        r1_0.tax_amount,
+        r1_0.total_amount,
+        r1_0.updated_at,
+        r1_0.user_id,
+        r1_0.vehicle_id 
+    from
+        rentals r1_0 
+    where
+        r1_0.rental_status=? 
+        and r1_0.created_at<?
+Hibernate: 
+    select
+        r1_0.rental_id,
+        r1_0.actual_return_datetime,
+        r1_0.created_at,
+        r1_0.daily_rate,
+        r1_0.discount_amount,
+        r1_0.notes,
+        r1_0.number_of_days,
+        r1_0.pickup_datetime,
+        r1_0.promo_id,
+        r1_0.rental_status,
+        r1_0.return_datetime,
+        r1_0.security_deposit,
+        r1_0.subtotal,
+        r1_0.tax_amount,
+        r1_0.total_amount,
+        r1_0.updated_at,
+        r1_0.user_id,
+        r1_0.vehicle_id 
+    from
+        rentals r1_0 
+    where
+        r1_0.rental_status=? 
+        and r1_0.created_at<?
+Hibernate: 
+    select
+        r1_0.rental_id,
+        r1_0.actual_return_datetime,
+        r1_0.created_at,
+        r1_0.daily_rate,
+        r1_0.discount_amount,
+        r1_0.notes,
+        r1_0.number_of_days,
+        r1_0.pickup_datetime,
+        r1_0.promo_id,
+        r1_0.rental_status,
+        r1_0.return_datetime,
+        r1_0.security_deposit,
+        r1_0.subtotal,
+        r1_0.tax_amount,
+        r1_0.total_amount,
+        r1_0.updated_at,
+        r1_0.user_id,
+        r1_0.vehicle_id 
+    from
+        rentals r1_0 
+    where
+        r1_0.rental_status=? 
+        and r1_0.created_at<?
+Hibernate: 
+    select
+        v1_0.vehicle_id,
+        v1_0.brand,
+        v1_0.created_at,
+        v1_0.daily_rate,
+        v1_0.description,
+        v1_0.fuel_type,
+        v1_0.location,
+        v1_0.model,
+        v1_0.registration_number,
+        v1_0.seating_capacity,
+        v1_0.status,
+        v1_0.transmission,
+        v1_0.updated_at,
+        v1_0.vehicle_type 
+    from
+        vehicles v1_0 
+    where
+        v1_0.status<>? 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.brand) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.model) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.location) like lower(concat('%', ?, '%')) escape ''
+        ) 
+        and (
+            ? is null 
+            or v1_0.vehicle_type=?
+        ) 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.location)=lower(?)
+        ) 
+        and (
+            ? is null 
+            or v1_0.fuel_type=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.transmission=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.status=?
+        ) 
+    order by
+        v1_0.created_at desc
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        v1_0.vehicle_id,
+        v1_0.brand,
+        v1_0.created_at,
+        v1_0.daily_rate,
+        v1_0.description,
+        v1_0.fuel_type,
+        v1_0.location,
+        v1_0.model,
+        v1_0.registration_number,
+        v1_0.seating_capacity,
+        v1_0.status,
+        v1_0.transmission,
+        v1_0.updated_at,
+        v1_0.vehicle_type 
+    from
+        vehicles v1_0 
+    where
+        v1_0.status<>? 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.brand) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.model) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.location) like lower(concat('%', ?, '%')) escape ''
+        ) 
+        and (
+            ? is null 
+            or v1_0.vehicle_type=?
+        ) 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.location)=lower(?)
+        ) 
+        and (
+            ? is null 
+            or v1_0.fuel_type=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.transmission=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.status=?
+        ) 
+    order by
+        v1_0.created_at desc
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        v1_0.vehicle_id,
+        v1_0.brand,
+        v1_0.created_at,
+        v1_0.daily_rate,
+        v1_0.description,
+        v1_0.fuel_type,
+        v1_0.location,
+        v1_0.model,
+        v1_0.registration_number,
+        v1_0.seating_capacity,
+        v1_0.status,
+        v1_0.transmission,
+        v1_0.updated_at,
+        v1_0.vehicle_type 
+    from
+        vehicles v1_0 
+    where
+        v1_0.status<>? 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.brand) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.model) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.location) like lower(concat('%', ?, '%')) escape ''
+        ) 
+        and (
+            ? is null 
+            or v1_0.vehicle_type=?
+        ) 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.location)=lower(?)
+        ) 
+        and (
+            ? is null 
+            or v1_0.fuel_type=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.transmission=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.status=?
+        ) 
+    order by
+        v1_0.created_at desc
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        v1_0.vehicle_id,
+        v1_0.brand,
+        v1_0.created_at,
+        v1_0.daily_rate,
+        v1_0.description,
+        v1_0.fuel_type,
+        v1_0.location,
+        v1_0.model,
+        v1_0.registration_number,
+        v1_0.seating_capacity,
+        v1_0.status,
+        v1_0.transmission,
+        v1_0.updated_at,
+        v1_0.vehicle_type 
+    from
+        vehicles v1_0 
+    where
+        v1_0.status<>? 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.brand) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.model) like lower(concat('%', ?, '%')) escape '' 
+            or lower(v1_0.location) like lower(concat('%', ?, '%')) escape ''
+        ) 
+        and (
+            ? is null 
+            or v1_0.vehicle_type=?
+        ) 
+        and (
+            ? is null 
+            or ?='' 
+            or lower(v1_0.location)=lower(?)
+        ) 
+        and (
+            ? is null 
+            or v1_0.fuel_type=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.transmission=?
+        ) 
+        and (
+            ? is null 
+            or v1_0.status=?
+        ) 
+    order by
+        v1_0.created_at desc
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        vi1_0.image_id,
+        vi1_0.created_at,
+        vi1_0.image_url,
+        vi1_0.is_primary,
+        vi1_0.vehicle_id 
+    from
+        vehicle_images vi1_0 
+    left join
+        vehicles v1_0 
+            on v1_0.vehicle_id=vi1_0.vehicle_id 
+    where
+        v1_0.vehicle_id=? 
+    order by
+        vi1_0.created_at
+Hibernate: 
+    select
+        r1_0.rental_id,
+        r1_0.actual_return_datetime,
+        r1_0.created_at,
+        r1_0.daily_rate,
+        r1_0.discount_amount,
+        r1_0.notes,
+        r1_0.number_of_days,
+        r1_0.pickup_datetime,
+        r1_0.promo_id,
+        r1_0.rental_status,
+        r1_0.return_datetime,
+        r1_0.security_deposit,
+        r1_0.subtotal,
+        r1_0.tax_amount,
+        r1_0.total_amount,
+        r1_0.updated_at,
+        r1_0.user_id,
+        r1_0.vehicle_id 
+    from
+        rentals r1_0 
+    where
+        r1_0.rental_status=? 
+        and r1_0.created_at<?

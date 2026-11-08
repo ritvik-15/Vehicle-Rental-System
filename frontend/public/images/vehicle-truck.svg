@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="Truck placeholder">
+  <defs>
+    <linearGradient id="truckBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0f5ff"/>
+      <stop offset="1" stop-color="#dde8fa"/>
+    </linearGradient>
+    <linearGradient id="truckCargo" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#16345c"/>
+      <stop offset="1" stop-color="#0f2547"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" fill="url(#truckBg)"/>
+  <ellipse cx="160" cy="172" rx="124" ry="7" fill="#b9cbec" opacity="0.6"/>
+  <rect x="118" y="64" width="158" height="86" rx="8" fill="url(#truckCargo)"/>
+  <rect x="118" y="64" width="158" height="6" rx="3" fill="#3b82f6" opacity="0.5"/>
+  <path d="M154 74 L154 144 M190 74 L190 144 M226 74 L226 144 M262 74 L262 144" stroke="#3b82f6" stroke-width="3" opacity="0.4"/>
+  <rect x="46" y="112" width="66" height="38" rx="9" fill="#1d4ed8"/>
+  <rect x="70" y="74" width="48" height="42" rx="8" fill="#24477e"/>
+  <rect x="78" y="82" width="30" height="20" rx="4" fill="#eff6ff"/>
+  <rect x="64" y="78" width="6" height="10" rx="2" fill="#111827"/>
+  <rect x="46" y="122" width="10" height="9" rx="4" fill="#dbeafe"/>
+  <rect x="44" y="142" width="24" height="8" rx="4" fill="#94a3b8"/>
+  <circle cx="86" cy="150" r="18" fill="#111827"/>
+  <circle cx="86" cy="150" r="7" fill="#94a3b8"/>
+  <circle cx="234" cy="150" r="18" fill="#111827"/>
+  <circle cx="234" cy="150" r="7" fill="#94a3b8"/>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="Car placeholder">
+  <defs>
+    <linearGradient id="carBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0f5ff"/>
+      <stop offset="1" stop-color="#dde8fa"/>
+    </linearGradient>
+    <linearGradient id="carBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#24477e"/>
+      <stop offset="1" stop-color="#12294a"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" fill="url(#carBg)"/>
+  <ellipse cx="160" cy="167" rx="118" ry="7" fill="#b9cbec" opacity="0.6"/>
+  <path d="M104 110 L124 82 Q127 77 134 77 L192 77 Q199 77 202 82 L222 110 Z" fill="#1d4ed8"/>
+  <path d="M130 84 L158 84 L158 104 L120 104 Z" fill="#eff6ff"/>
+  <path d="M164 84 L190 84 L202 104 L164 104 Z" fill="#eff6ff"/>
+  <rect x="50" y="108" width="220" height="36" rx="14" fill="url(#carBody)"/>
+  <rect x="64" y="132" width="192" height="4" rx="2" fill="#3b82f6" opacity="0.55"/>
+  <rect x="50" y="116" width="12" height="9" rx="4" fill="#dbeafe"/>
+  <rect x="258" y="116" width="12" height="9" rx="4" fill="#f87171"/>
+  <path d="M162 114 L162 140" stroke="#3b82f6" stroke-width="2" opacity="0.7"/>
+  <circle cx="98" cy="146" r="17" fill="#111827"/>
+  <circle cx="98" cy="146" r="6.5" fill="#94a3b8"/>
+  <circle cx="222" cy="146" r="17" fill="#111827"/>
+  <circle cx="222" cy="146" r="6.5" fill="#94a3b8"/>
+</svg>

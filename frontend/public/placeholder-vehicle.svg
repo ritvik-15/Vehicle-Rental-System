@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" role="img" aria-label="Vehicle placeholder">
+  <rect width="320" height="180" fill="#dfe3ea"/>
+  <g fill="#9aa3b2">
+    <path d="M60 110h200l-14-34a12 12 0 0 0-11-7H96a12 12 0 0 0-11 8L60 110z"/>
+    <rect x="52" y="110" width="216" height="26" rx="8"/>
+    <circle cx="96" cy="138" r="14" fill="#6b7280"/>
+    <circle cx="224" cy="138" r="14" fill="#6b7280"/>
+    <circle cx="96" cy="138" r="6" fill="#dfe3ea"/>
+    <circle cx="224" cy="138" r="6" fill="#dfe3ea"/>
+  </g>
+</svg>

@@ -1,0 +1,715 @@
+/* Vehicle Rental — Phase A foundation styles (plain CSS, intentionally minimal) */
+* { box-sizing: border-box; }
+
+:root {
+  --accent: #1d4ed8;
+  --accent-dark: #1e40af;
+  --bg: #f4f5f7;
+  --card: #ffffff;
+  --text: #1f2430;
+  --muted: #6b7280;
+  --danger: #b91c1c;
+  --danger-bg: #fee2e2;
+  --success: #166534;
+  --success-bg: #dcfce7;
+  --border: #d9dce3;
+  /* Phase 12G-1: additive homepage tokens (existing tokens untouched) */
+  --ivory: #f6f1e7;
+  --cream: #fbf8f2;
+  --espresso: #3b2f26;
+  --espresso-deep: #2a211b;
+  --olive: #5e6b4f;
+  --olive-hover: #4c583f;
+  --olive-tint: #b7c29b;
+  --warm-border: #e7dfd1;
+  --muted-espresso: #6f6257;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+h1 { font-size: 1.5rem; }
+h2 { font-size: 1.2rem; }
+a { color: var(--accent); }
+
+.shell { min-height: 100vh; display: flex; flex-direction: column; }
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.topbar.admin { border-bottom: 3px solid var(--accent); }
+.brand { font-weight: 700; }
+.topbar nav { display: flex; gap: 1rem; flex-wrap: wrap; }
+.topbar nav a { text-decoration: none; color: var(--text); padding: 0.25rem 0.4rem; border-radius: 4px; }
+.topbar nav a.active { color: var(--accent); font-weight: 600; background: #eef2ff; }
+.topbar-end { margin-left: auto; display: flex; align-items: center; gap: 0.75rem; }
+
+.content { flex: 1; padding: 1.5rem 1.25rem; max-width: 1000px; width: 100%; margin: 0 auto; }
+.landing { display: flex; justify-content: center; align-items: flex-start; padding-top: 4rem; }
+.landing-actions { display: flex; gap: 0.75rem; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+.auth-card { max-width: 420px; margin: 0 auto; }
+
+form { display: flex; flex-direction: column; gap: 0.35rem; }
+form label { font-weight: 600; font-size: 0.9rem; margin-top: 0.6rem; }
+input {
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 1rem;
+}
+input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+button, .button {
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+button:hover, .button:hover { background: var(--accent-dark); }
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+.button-secondary { background: #4b5563; }
+.button-secondary:hover { background: #374151; }
+.topbar button { margin-top: 0; padding: 0.35rem 0.8rem; font-size: 0.9rem; }
+
+.error-alert {
+  background: var(--danger-bg);
+  color: var(--danger);
+  border: 1px solid var(--danger);
+  border-radius: 6px;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.95rem;
+}
+.success-alert {
+  background: var(--success-bg);
+  color: var(--success);
+  border: 1px solid var(--success);
+  border-radius: 6px;
+  padding: 0.6rem 0.75rem;
+  font-size: 0.95rem;
+}
+
+.muted { color: var(--muted); }
+.placeholder h2 { margin-top: 0; }
+
+/* ---------- Phase B: vehicle discovery ---------- */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  align-items: flex-end;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.25rem;
+}
+.control { display: flex; flex-direction: column; gap: 0.25rem; min-width: 140px; flex: 1 1 140px; }
+.control label { font-weight: 600; font-size: 0.85rem; }
+.controls button { margin-top: 0; flex: 0 0 auto; }
+
+.state-note {
+  background: var(--card);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--muted);
+}
+
+.vehicle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+.vehicle-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.vehicle-card-media { display: block; height: 160px; background: #e9ecf1; }
+.vehicle-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.vehicle-card-body { padding: 1rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+.vehicle-card-body h3 { margin: 0; font-size: 1.05rem; }
+.vehicle-card-body h3 a { color: var(--text); text-decoration: none; }
+.vehicle-card-body h3 a:hover { color: var(--accent); }
+
+.img-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 120px;
+  background: linear-gradient(135deg, #e9ecf1, #dfe3ea);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.badges { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0; }
+.badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: var(--accent-dark);
+  border: 1px solid #c7d2fe;
+}
+.badge-available { background: var(--success-bg); color: var(--success); border-color: var(--success); }
+.badge-rented { background: var(--danger-bg); color: var(--danger); border-color: var(--danger); }
+.badge-maintenance { background: #fef3c7; color: #92400e; border-color: #d97706; }
+
+.vehicle-facts { display: flex; flex-wrap: wrap; gap: 0.35rem 1.25rem; margin: 0; }
+.vehicle-facts div { display: flex; gap: 0.35rem; font-size: 0.9rem; }
+.vehicle-facts dt { color: var(--muted); }
+.vehicle-facts dd { margin: 0; font-weight: 600; }
+
+.rate { font-size: 1.3rem; font-weight: 700; margin: 0; }
+.rate span { font-size: 0.85rem; font-weight: 400; color: var(--muted); }
+
+.back-link { text-decoration: none; font-weight: 600; }
+
+.detail-layout { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+@media (min-width: 860px) {
+  .detail-layout { grid-template-columns: 1.1fr 1fr; align-items: start; }
+  .availability-card { grid-column: 1 / -1; }
+}
+.detail-media img.detail-main-image {
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  display: block;
+}
+.detail-media .img-fallback { border-radius: 8px; border: 1px solid var(--border); min-height: 220px; }
+.detail-info h1 { margin-top: 0; }
+.detail-facts { flex-direction: column; gap: 0.5rem; }
+
+.availability-form { display: flex; flex-wrap: wrap; gap: 1rem; align-items: flex-end; }
+.availability-form .control { flex: 0 1 230px; }
+.small-note { font-size: 0.85rem; margin-bottom: 0; }
+
+/* ---------- Phase C: booking ---------- */
+.booking-layout {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 860px) {
+  .booking-layout {
+    grid-template-columns: 1fr 1.2fr;
+    align-items: start;
+  }
+}
+.booking-vehicle-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.booking-vehicle-img {
+  width: 160px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.booking-vehicle-img.img-fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #e9ecf1, #dfe3ea);
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.booking-form h2 { margin-top: 0; }
+.confirmation-details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1.5rem;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+.confirmation-details dt { color: var(--muted); font-weight: 500; }
+.confirmation-details dd { margin: 0; font-weight: 600; }
+.confirmation-details .total-row dt,
+.confirmation-details .total-row dd {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.confirmation-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.button-success {
+  background: var(--success);
+  border-color: var(--success);
+  color: #fff;
+}
+.button-success:hover:not(:disabled) {
+  filter: brightness(1.1);
+}
+.button-success:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.confirmation .small-note { margin-top: 1rem; }
+
+/* ---------- Phase D: payment ---------- */
+.confirmation.success {
+  border: 2px solid var(--success);
+  background: var(--success-bg);
+}
+.confirmation.failure {
+  border: 2px solid var(--danger);
+  background: var(--danger-bg);
+}
+.confirmation code {
+  background: var(--card);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-family: monospace;
+  word-break: break-all;
+}
+.payment-order-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.payment-order-row div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.payment-order-row label {
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.payment-order-row span {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* ---------- Phase 12C: vehicle listing upgrade (listing page scoped) ----------
+   New classes only — shared rules (.controls, .card, .vehicle-grid,
+   .vehicle-card, .badge, .rate, .vehicle-facts, .state-note, .img-fallback)
+   are intentionally left untouched for the pages that still use them. */
+/* Phase 12G-1 cinematic hero: full-bleed temporary placeholder treatment
+   (multi-layer golden-hour gradient + dark legibility overlay). No photo
+   asset exists in the project, so the scenic photograph is pending — the
+   .hero-placeholder pill in the markup labels it as temporary. */
+.listing-hero {
+  background:
+    linear-gradient(180deg, rgba(24, 17, 11, 0.78) 0%, rgba(24, 17, 11, 0.42) 42%, rgba(24, 17, 11, 0.55) 72%, rgba(24, 17, 11, 0.78) 100%),
+    radial-gradient(120% 95% at 50% 38%, rgba(0, 0, 0, 0) 38%, rgba(24, 17, 11, 0.55) 100%),
+    radial-gradient(85% 60% at 50% 74%, rgba(232, 197, 143, 0.5) 0%, rgba(232, 197, 143, 0) 62%),
+    linear-gradient(180deg, #3c4a57 0%, #6e6553 34%, #c09a66 56%, #e2c693 67%, #8e9a92 73%, #5a666a 84%, #38403f 100%);
+  color: var(--cream);
+  /* Full-bleed: cancel the content padding on all sides. */
+  margin: -1.5rem -1.25rem 0;
+  padding-top: 6.5rem;
+  padding-bottom: 8.75rem;
+  /* Align hero text with the centered 1160px content column below. */
+  padding-inline: max(1.5rem, calc((100% - 1160px - 2.5rem) / 2 + 1.25rem));
+}
+.listing-eyebrow {
+  margin: 0;
+  font-size: 0.73rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--olive-tint);
+}
+.listing-hero h1 {
+  margin: 0.6rem 0 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 400;
+  font-size: 3.1rem;
+  line-height: 1.12;
+  letter-spacing: 0.01em;
+  color: var(--cream);
+}
+.listing-hero h1 em { font-style: italic; }
+/* The single thin gold accent line. */
+.listing-hero h1::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 2px;
+  background: var(--olive-tint);
+  margin-top: 0.9rem;
+}
+.listing-sub {
+  margin: 0.9rem 0 0;
+  max-width: 62ch;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: rgba(246, 241, 231, 0.85);
+}
+
+/* Clean white search/filter panel with warm borders. */
+/* Floating cream search panel overlapping the hero's bottom edge. */
+.listing-filters {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem 1rem;
+  align-items: flex-end;
+  background: var(--cream);
+  border: 1px solid var(--warm-border);
+  border-radius: 20px;
+  padding: 1.35rem 1.5rem;
+  max-width: 1160px;
+  margin: -5.5rem auto 2rem;
+  box-shadow: 0 18px 40px rgba(42, 33, 27, 0.18);
+}
+.listing-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1 1 150px;
+  min-width: 140px;
+}
+.listing-field:first-child { flex: 2 1 260px; }
+.listing-field label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-espresso);
+}
+.listing-filters input,
+.listing-filters select {
+  width: 100%;
+  padding: 0.6rem 0.7rem;
+  border: 1px solid var(--warm-border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background: #fff;
+  color: var(--espresso);
+}
+.listing-filters input::placeholder { color: #9aa0a6; }
+.listing-filters input:focus,
+.listing-filters select:focus {
+  outline: 2px solid var(--olive);
+  outline-offset: 1px;
+}
+.listing-filters button { margin-top: 0; flex: 0 0 auto; }
+.listing-clear {
+  padding: 0.6rem 1.1rem;
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--espresso-deep);
+  border: 1px solid rgba(42, 33, 27, 0.45);
+}
+.listing-clear:hover { background: var(--ivory); }
+
+/* Scoped color: the shared .muted tone lands at 4.43:1 on the page
+   background (below WCAG AA 4.5); shared .muted itself stays untouched. */
+.listing-count { margin: 0 auto 0.85rem; max-width: 1160px; font-size: 0.92rem; color: var(--muted-espresso); }
+
+.listing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.4rem;
+}
+.listing-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--cream);
+  border: 1px solid var(--warm-border);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.listing-card:hover {
+  border-color: #d8cdb8;
+  box-shadow: 0 14px 30px rgba(42, 33, 27, 0.12);
+}
+.listing-card-media {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  background: #efe9dc;
+  overflow: hidden;
+}
+.listing-card-media > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.listing-card-media > .img-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+.listing-status {
+  position: absolute;
+  top: 0.6rem;
+  left: 0.6rem;
+}
+/* Availability badge colors/meanings untouched — presentation only. */
+.listing-status .badge {
+  box-shadow: 0 1px 3px rgba(23, 37, 54, 0.28);
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.listing-card-body {
+  padding: 1rem 1.1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  flex: 1;
+}
+.listing-card-body h2 { margin: 0; font-size: 1.05rem; line-height: 1.3; }
+.listing-card-body h2 a { color: var(--espresso); text-decoration: none; }
+.listing-card-body h2 a:hover { color: var(--olive); }
+/* Warm neutral spec pills inside cards; shared .badge stays untouched. */
+.listing-card .badges .badge {
+  background: #f2ecde;
+  color: #5b5147;
+  border: 1px solid var(--warm-border);
+}
+.listing-card .vehicle-facts dt { color: var(--muted-espresso); }
+.listing-card .vehicle-facts dd { color: var(--espresso); }
+.listing-card-foot {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid #efe8db;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.listing-price { color: var(--espresso); font-size: 1.22rem; }
+.listing-price span { color: var(--muted-espresso); font-size: 0.8rem; font-weight: 400; }
+.listing-cta {
+  margin-top: 0;
+  padding: 0.55rem 1.1rem;
+  font-size: 0.93rem;
+  font-weight: 600;
+  border-radius: 8px;
+  background: var(--olive);
+  color: #ffffff;
+}
+.listing-cta:hover { background: var(--olive-hover); }
+
+/* Type-specific local art inside the existing .img-fallback container. */
+.img-fallback-art { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- Phase 12E: premium direction (scoped only) ----------
+   :has() usage was verified in the project's browser before use
+   (CSS.supports('selector(:has(*))') === true; positive match on the home
+   page, no match on /login). If :has() were ever unsupported, these two
+   rules simply do not apply: container stays 1000px and the background
+   stays the existing neutral gray — no layout breakage. */
+main.content:has(> .listing) { max-width: none; }
+body:has(.topbar.customer) { background: var(--ivory); }
+
+.listing { color: var(--espresso); }
+.listing .state-note {
+  background: var(--cream);
+  border: 1px solid var(--warm-border);
+  border-radius: 12px;
+  color: var(--muted-espresso);
+  max-width: 1160px;
+  margin-inline: auto;
+}
+
+/* Customer navigation — matched only when CustomerLayout renders its
+   header with the additional `customer` class. Admin (.topbar.admin),
+   login, register, access-denied and 404 headers do not carry it. */
+.topbar.customer {
+  background: var(--espresso-deep);
+  border-bottom: 1px solid rgba(183, 194, 155, 0.3);
+  gap: 1.75rem;
+  padding: 0.85rem 1.5rem;
+}
+.topbar.customer .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  color: var(--ivory);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.topbar.customer .brand::before {
+  content: "";
+  width: 18px;
+  height: 2px;
+  background: var(--olive-tint);
+}
+.topbar.customer nav a {
+  color: rgba(246, 241, 231, 0.82);
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+}
+.topbar.customer nav a:hover { color: var(--ivory); }
+.topbar.customer nav a.active {
+  color: var(--ivory);
+  font-weight: 600;
+  background: transparent;
+  box-shadow: inset 0 -2px 0 var(--olive-tint);
+}
+.topbar.customer .topbar-end a { color: rgba(246, 241, 231, 0.82); }
+.topbar.customer .topbar-end a:hover { color: var(--ivory); }
+.topbar.customer .topbar-end .muted { color: rgba(246, 241, 231, 0.75); }
+.topbar.customer button {
+  margin-top: 0;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.88rem;
+  background: transparent;
+  color: var(--ivory);
+  border: 1px solid rgba(183, 194, 155, 0.5);
+  border-radius: 6px;
+}
+.topbar.customer button:hover { background: rgba(183, 194, 155, 0.16); }
+
+@media (max-width: 900px) {
+  .listing-hero { padding-top: 5.25rem; padding-bottom: 7.75rem; }
+  .listing-hero h1 { font-size: 2.35rem; }
+  .listing-filters { margin-top: -4.5rem; }
+  .listing-field { flex: 1 1 200px; }
+  .listing-field:first-child { flex: 2 1 280px; }
+}
+
+@media (max-width: 640px) {
+  .listing-hero { padding-top: 4rem; padding-bottom: 6.75rem; }
+  .listing-hero h1 { font-size: 1.8rem; }
+  .listing-hero h1::after { margin-top: 0.75rem; }
+  .listing-filters { margin-top: -3.25rem; padding: 1rem; border-radius: 16px; }
+  .listing-field,
+  .listing-field:first-child { flex: 1 1 100%; min-width: 0; }
+  .listing-filters button { width: 100%; }
+  .listing-grid { grid-template-columns: 1fr; }
+  .listing-card-foot { justify-content: flex-start; }
+  .listing-cta { flex: 1 1 100%; text-align: center; }
+  .topbar.customer { padding: 0.75rem 1rem; gap: 1rem; }
+}
+
+/* ---------- Phase 12G-1: hero extras, fleet section (homepage-scoped) ----------
+   The hero's gradient background is a temporary placeholder treatment: swap it
+   for the approved scenic photograph in a later phase (asset pending approval). */
+.hero-placeholder {
+  display: inline-block;
+  margin-top: 1.6rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(246, 241, 231, 0.72);
+  border: 1px dashed rgba(246, 241, 231, 0.4);
+  border-radius: 999px;
+  padding: 0.32rem 0.7rem;
+}
+
+/* Presentation-only search icon; the input itself is unchanged. */
+.listing-field-search { position: relative; }
+.listing-field-search input { padding-left: 2.3rem; }
+.field-icon {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.78rem;
+  display: flex;
+  color: #8a7f70;
+  pointer-events: none;
+}
+
+.listing-fleet {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+.fleet-head { margin-bottom: 1.4rem; }
+.fleet-eyebrow {
+  margin: 0;
+  font-size: 0.73rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--olive);
+}
+.fleet-head h2 {
+  margin: 0.5rem 0 0;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 400;
+  font-size: 2rem;
+  color: var(--espresso);
+}
+.fleet-sub {
+  margin: 0.6rem 0 0;
+  max-width: 62ch;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--muted-espresso);
+}
+
+/* Direct-child blocks outside .listing-fleet stay in the 1160px column. */
+.listing > div:has(.error-alert) {
+  max-width: 1160px;
+  margin-inline: auto;
+}
+
+@media (max-width: 640px) {
+  .fleet-head h2 { font-size: 1.6rem; }
+  .hero-placeholder { font-size: 0.62rem; }
+}
+
+/* R3-B: narrowly scoped small-screen fixes only — admin topbar,
+   booking confirmation details, booking vehicle image. Desktop
+   (min-width: 641px) presentation is untouched by this block. */
+@media (max-width: 640px) {
+  .topbar.admin { padding: 0.6rem 0.75rem; gap: 0.75rem; }
+  .topbar.admin .brand { font-size: 0.9rem; }
+  .topbar.admin nav { gap: 0.5rem 0.6rem; }
+  .topbar.admin .topbar-end .muted { display: none; }
+  .confirmation-details { grid-template-columns: 1fr; gap: 0.25rem 0; }
+  .confirmation-details dd { margin-bottom: 0.35rem; }
+  .booking-vehicle-img {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+}

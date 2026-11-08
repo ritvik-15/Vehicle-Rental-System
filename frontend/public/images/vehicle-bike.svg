@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="Bike placeholder">
+  <defs>
+    <linearGradient id="bikeBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0f5ff"/>
+      <stop offset="1" stop-color="#dde8fa"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" fill="url(#bikeBg)"/>
+  <ellipse cx="160" cy="171" rx="112" ry="7" fill="#b9cbec" opacity="0.6"/>
+  <path d="M150 140 L230 142" stroke="#1e3a5f" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="88" cy="142" r="22" fill="none" stroke="#111827" stroke-width="9"/>
+  <circle cx="230" cy="142" r="22" fill="none" stroke="#111827" stroke-width="9"/>
+  <path d="M88 122 L88 162 M68 142 L108 142 M74 128 L102 156 M102 128 L74 156" stroke="#cbd5e1" stroke-width="2.5"/>
+  <path d="M230 122 L230 162 M210 142 L250 142 M216 128 L244 156 M244 128 L216 156" stroke="#cbd5e1" stroke-width="2.5"/>
+  <circle cx="88" cy="142" r="6" fill="#94a3b8"/>
+  <circle cx="230" cy="142" r="6" fill="#94a3b8"/>
+  <path d="M64 124 Q88 108 112 124" fill="none" stroke="#1d4ed8" stroke-width="6" stroke-linecap="round"/>
+  <path d="M206 124 Q230 108 254 124" fill="none" stroke="#16345c" stroke-width="6" stroke-linecap="round"/>
+  <path d="M90 142 L114 106" stroke="#1e3a5f" stroke-width="7" stroke-linecap="round"/>
+  <rect x="176" y="137" width="76" height="9" rx="4.5" fill="#94a3b8"/>
+  <rect x="138" y="120" width="46" height="26" rx="7" fill="#1e3a5f"/>
+  <path d="M124 114 L166 112 L152 138 L126 138 Z" fill="#1d4ed8"/>
+  <path d="M120 110 Q140 96 168 100 L180 112 Q154 122 128 116 Z" fill="#24477e"/>
+  <path d="M166 104 L216 102 Q226 102 226 110 L176 116 Z" fill="#16345c"/>
+  <rect x="216" y="103" width="10" height="6" rx="3" fill="#f87171"/>
+  <path d="M116 102 L98 94" stroke="#111827" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="98" cy="94" r="4" fill="#374151"/>
+  <circle cx="104" cy="106" r="9" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="Bus placeholder">
+  <defs>
+    <linearGradient id="busBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0f5ff"/>
+      <stop offset="1" stop-color="#dde8fa"/>
+    </linearGradient>
+    <linearGradient id="busBody" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#24477e"/>
+      <stop offset="1" stop-color="#12294a"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="200" fill="url(#busBg)"/>
+  <ellipse cx="160" cy="172" rx="124" ry="7" fill="#b9cbec" opacity="0.6"/>
+  <rect x="126" y="52" width="64" height="10" rx="5" fill="#1e3a5f"/>
+  <rect x="44" y="60" width="232" height="90" rx="14" fill="url(#busBody)"/>
+  <rect x="44" y="120" width="232" height="10" fill="#3b82f6" opacity="0.7"/>
+  <rect x="52" y="74" width="40" height="30" rx="5" fill="#dbeafe"/>
+  <rect x="102" y="76" width="32" height="26" rx="4" fill="#dbeafe"/>
+  <rect x="142" y="76" width="32" height="26" rx="4" fill="#dbeafe"/>
+  <rect x="182" y="76" width="32" height="26" rx="4" fill="#dbeafe"/>
+  <rect x="222" y="76" width="32" height="26" rx="4" fill="#dbeafe"/>
+  <rect x="54" y="112" width="24" height="34" rx="3" fill="#1d4ed8"/>
+  <rect x="46" y="130" width="10" height="9" rx="3" fill="#dbeafe"/>
+  <circle cx="90" cy="152" r="17" fill="#111827"/>
+  <circle cx="90" cy="152" r="6.5" fill="#94a3b8"/>
+  <circle cx="234" cy="152" r="17" fill="#111827"/>
+  <circle cx="234" cy="152" r="6.5" fill="#94a3b8"/>
+</svg>
